@@ -110,7 +110,7 @@ class App extends Component {
               <h2>مدیریت وضایف روزانه </h2>
             </Alert>
             <Alert variant="info">
-              تعداد کار ها
+              تعداد کار هdddا
               <Badge pill variant={bageStyle}>
                 {tasks.length}
               </Badge>
