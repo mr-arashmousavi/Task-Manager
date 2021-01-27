@@ -24,12 +24,12 @@ class App extends Component {
     this.setState({ showTask: !this.state.showTask });
 
     if (this.state.showTask == false) {
-      toast.info('نمایش', {
+      toast.info('نمایش کار ها ', {
         position: 'top-right',
         closeOnClick: true,
       });
     } else {
-      toast.warn('عدم نمایش', {
+      toast.warn('عدم نمایش کار ها', {
         position: 'top-right',
         closeOnClick: true,
       });
@@ -43,7 +43,7 @@ class App extends Component {
     const taskIndex = tasks.findIndex((t) => t.id == id);
     const task = tasks[taskIndex];
 
-    toast.error(`کار با نام ${task.name} با موفقیت  از بین  شد  `, {
+    toast.error(`کار با نام '${task.name}' با موفقیت  از بین رفت   `, {
       position: 'bottom-left',
       closeButton: true,
       closeOnClock: true,
@@ -69,8 +69,8 @@ class App extends Component {
     };
     if (tassk.name !== '' && tassk.name !== ' ' && tassk.name !== '    ') {
       tasks.push(tassk);
-      this.setState({ tasks, tassk: '' });
-      toast.success(`کار با نام ${tassk.name} با موفقیت اضافه شد `, {
+      this.setState({ tasks, task: '' });
+      toast.success(` کار شما با نام '${tassk.name}' با موفقیت اضافه شد `, {
         position: 'bottom-right',
         closeButton: true,
         closeOnClock: true,
@@ -107,7 +107,7 @@ class App extends Component {
         <Row>
           <Col>
             <Alert variant="info">
-              <h2>مدیریت کننده کار های روز مره </h2>
+              <h2>مدیریت وضایف روزانه </h2>
             </Alert>
             <Alert variant="info">
               تعداد کار ها
