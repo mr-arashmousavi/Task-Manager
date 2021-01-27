@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Tasks from './components/Task/Tasks';
+
 import {
   Accordion,
   Alert,
@@ -12,6 +13,7 @@ import {
 } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
+import { ToastContainer, Toast, toast } from 'react-toastify';
 class App extends Component {
   state = {
     tasks: [],
@@ -20,12 +22,32 @@ class App extends Component {
   };
   handeshowtask = () => {
     this.setState({ showTask: !this.state.showTask });
+
+    if (this.state.showTask == false) {
+      toast.info('نمایش', {
+        position: 'top-right',
+        closeOnClick: true,
+      });
+    } else {
+      toast.warn('عدم نمایش', {
+        position: 'top-right',
+        closeOnClick: true,
+      });
+    }
   };
 
   handeDleteTask = (id) => {
     const tasks = [...this.state.tasks];
     const finlterTask = tasks.filter((t) => t.id !== id);
     this.setState({ tasks: finlterTask });
+    const taskIndex = tasks.findIndex((t) => t.id == id);
+    const task = tasks[taskIndex];
+
+    toast.error(`کار با نام ${task.name} با موفقیت  از بین  شد  `, {
+      position: 'bottom-left',
+      closeButton: true,
+      closeOnClock: true,
+    });
   };
 
   handeChengeTask = (event, id) => {
@@ -48,6 +70,11 @@ class App extends Component {
     if (tassk.name !== '' && tassk.name !== ' ' && tassk.name !== '    ') {
       tasks.push(tassk);
       this.setState({ tasks, tassk: '' });
+      toast.success(`کار با نام ${tassk.name} با موفقیت اضافه شد `, {
+        position: 'bottom-right',
+        closeButton: true,
+        closeOnClock: true,
+      });
     }
   };
 
@@ -116,10 +143,11 @@ class App extends Component {
               </Row>
             </Form>
           </Col>
-          <Col style={{ backgroundColor: 'red' }} xs={6}>
+          <Col variant="info" style={{ backgroundColor: '#151B48' }} xs={6}>
             {taske}
           </Col>
         </Row>
+        <ToastContainer />
       </Container>
     );
   }
