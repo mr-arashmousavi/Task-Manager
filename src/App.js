@@ -107,7 +107,7 @@ class App extends Component {
         <Row>
           <Col>
             <Alert variant="info">
-              <h2>مدیریت وضایف روزانه </h2>
+              <h2>مدیریت وظایف روزانه </h2>
             </Alert>
             <Alert variant="info">
               تعداد کار هdddا
