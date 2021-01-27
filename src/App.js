@@ -24,8 +24,8 @@ class App extends Component {
 
   handeDleteTask = (id) => {
     const tasks = [...this.state.tasks];
-    const flinerTask = tasks.filter((t) => t.id !== id);
-    this.setState({ tasks: flinerTask });
+    const finlterTask = tasks.filter((t) => t.id !== id);
+    this.setState({ tasks: finlterTask });
   };
 
   handeChengeTask = (event, id) => {
